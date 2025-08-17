@@ -1,7 +1,7 @@
 /* General Page Styling */
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #74ebd5, #9face6);
+  background: linear-gradient(135deg, #507b73, #525770);
   margin: 0;
   padding: 0;
   display: flex;
@@ -36,7 +36,7 @@ button {
   border-radius: 8px;
   font-size: 1rem;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background 1s ease;
 }
 
 button:hover {
@@ -55,28 +55,53 @@ button:hover {
 .user-card {
   background: #fff;
   padding: 1rem;
-  border-radius: 10px;
+  border-radius: 20px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  position: relative;
+  max-height: 180px; /* default compact view */
 }
 
+/* Zoom effect on hover */
+.user-card:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  max-height: 500px; /* expand card on hover */
+}
+
+/* Profile picture */
 .user-card img {
   width: 80px;
   height: 80px;
   border-radius: 50%;
   border: 3px solid #4a90e2;
   margin-bottom: 10px;
+  transition: transform 0.3s ease;
 }
 
-.user-card p {
-  margin: 5px 0;
+/* Slight zoom for picture on hover */
+.user-card:hover img {
+  transform: scale(1.1);
+}
+
+/* Info (always visible but clipped if long) */
+.user-info {
   font-size: 0.9rem;
   color: #555;
+  transition: max-height 0.3s ease;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.user-card strong {
-  color: #222;
+/* When hovered, show full info */
+.user-card:hover .user-info {
+  white-space: normal;   /* allow wrapping */
+  overflow: visible;
 }
+
+
 
 
 .spinner {

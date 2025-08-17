@@ -26,12 +26,17 @@ async function fetchRandomUsers(count = 6) {
 
       usersHTML += `
         <div class="user-card">
-          <img src="${profilePic}" alt="Profile Picture">
-          <p><strong>${firstName} ${lastName}</strong></p>
-          <p>${email}</p>
-          <p>${city}, ${country}</p>
+        <img src="${profilePic}" alt="Profile Picture">
+          <div class="user-info">
+            <p> ${firstName}</p>
+            <p> ${lastName}</p>
+            <p> ${email}</p>
+            <p> ${city}</p>
+            <p> ${country}</p>
         </div>
-      `;
+      </div>
+    `;
+
     });
 
     // Display users in grid
