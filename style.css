@@ -61,17 +61,17 @@ button:hover {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;
   position: relative;
-  max-height: 180px; /* default compact view */
+  max-height: 180px; 
 }
 
-/* Zoom effect on hover */
+
 .user-card:hover {
   transform: scale(1.08);
   box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-  max-height: 500px; /* expand card on hover */
+  max-height: 500px; 
 }
 
-/* Profile picture */
+
 .user-card img {
   width: 80px;
   height: 80px;
@@ -81,12 +81,12 @@ button:hover {
   transition: transform 0.3s ease;
 }
 
-/* Slight zoom for picture on hover */
+
 .user-card:hover img {
   transform: scale(1.1);
 }
 
-/* Info (always visible but clipped if long) */
+
 .user-info {
   font-size: 0.9rem;
   color: #555;
@@ -95,13 +95,12 @@ button:hover {
   text-overflow: ellipsis;
 }
 
-/* When hovered, show full info */
+
 .user-card:hover .user-info {
-  white-space: normal;   /* allow wrapping */
+  white-space: normal;   
   overflow: visible;
+  overflow-wrap: break-word; 
 }
-
-
 
 
 .spinner {
