@@ -2,16 +2,18 @@
 const getUserBtn = document.getElementById('getUserBtn');
 const userInfoDiv = document.getElementById('userInfo');
 
-// Function to fetch multiple random users
+// how Function to fetch a random users
 async function fetchRandomUsers(count = 6) {
   try {
-    // Show loading spinner
+    // Sloading spinner
     userInfoDiv.style.display = "block";
     userInfoDiv.innerHTML = `<div class="spinner"></div>`;
 
-    // Fetch multiple users
+    // Request to random user API
     const response = await fetch(`https://randomuser.me/api/?results=${count}`);
+    // Convert response to JSON
     const data = await response.json();
+    // Extract results from data
     const users = data.results;
 
     // Build HTML for each user
@@ -24,15 +26,18 @@ async function fetchRandomUsers(count = 6) {
       const country = user.location.country;
       const profilePic = user.picture.large;
 
+      //Display user information in a card format
       usersHTML += `
         <div class="user-card">
         <img src="${profilePic}" alt="Profile Picture">
           <div class="user-info">
-            <p> ${firstName}</p>
-            <p> ${lastName}</p>
-            <p> ${email}</p>
-            <p> ${city}</p>
-            <p> ${country}</p>
+            <strong>FirstName: ${firstName}</strong>
+            <strong>LastName: ${lastName}</strong>
+            <div class="extra-info">
+            <p>Email: ${email}</p>
+            <p>City: ${city}</p>
+            <p>Country: ${country}</p>
+          </div>
         </div>
       </div>
     `;
@@ -47,6 +52,8 @@ async function fetchRandomUsers(count = 6) {
     userInfoDiv.innerHTML = "<span style='color:red;'>❌ Failed to fetch user data.</span>";
   }
 }
+
+
 
 // Event listener for button
 getUserBtn.addEventListener('click', () => fetchRandomUsers(6));
